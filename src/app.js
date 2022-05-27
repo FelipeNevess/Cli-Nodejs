@@ -11,7 +11,7 @@ const { verifyGit } = require('./utils');
 
 start();
 
-// function getStated() {
+function getStated() {
   get(schema, async (err, { nameProject, useGit }) => {
     if (err) { throw new Error(err) }
 
@@ -21,12 +21,12 @@ start();
     try {
       exec(`mkdir ${name}`);
       runningScript(data, name);
-      await writeScript(name);
+      await writeScript(name, useGit);
 
     } catch(err) {
       console.error(err);
     }
   });
-// };
+};
 
-// exports.getStated = getStated;
+exports.getStated = getStated;
