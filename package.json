@@ -1,5 +1,5 @@
 {
-  "name": "cli-create-app-node",
+  "name": "pro1",
   "version": "1.0.0",
   "description": "Crie um projeto base em Nodejs com apenas um comando",
   "main": "src/app.js",
