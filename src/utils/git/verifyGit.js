@@ -1,12 +1,14 @@
 const { resolve } = require('path');
 
 const read = require('../../readFile');
+const testRegex = require('../prompt/testRegex');
 
 module.exports = async (useGit) => {
-  const verifyGitInput = /^(N|NO)$/i.test(useGit);
+  const verifyGitInput = testRegex(useGit);
 
-  const data = await read(resolve(__dirname, '..', '..', 'script.json'));
-  const { configs, libs, git } = JSON.parse(data);
+  const { configs, libs, git } = await read(
+    resolve(__dirname, '..', '..', 'script.json')
+  );
 
   const result = verifyGitInput ?
     { configs, libs } :
