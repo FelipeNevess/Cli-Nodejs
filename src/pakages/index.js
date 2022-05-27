@@ -1,3 +1,4 @@
+const jsonApp = require('./fileJson');
 const { fileGit, fileEditorConfig } = require('./filesUtilities');
 const { fileServer } = require('./filesApp');
 
@@ -7,7 +8,8 @@ const libs = {
 }
 
 const fileApp = {
-  fileServer
+  fileServer,
+  jsonApp
 }
 
 module.exports = {

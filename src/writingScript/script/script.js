@@ -1,17 +1,20 @@
 const { formateFile } = require('../../formatting');
 const write = require('../write/write');
+const { testRegex } = require('../../utils');
+const read = require('../../readFile');
 const {
   libs: {
     fileGit,
     fileEditorConfig
   },
   fileApp: {
-    fileServer
+    fileServer,
+    jsonApp
   }
 } = require('../../pakages');
 
 module.exports = async (bash, useGit) => {
-  const verifyGitInput = /^(N|NO)$/i.test(useGit);
+  const verifyGitInput = testRegex(useGit);
 
   const formattedEditorConfig = await formateFile(fileEditorConfig);
   const formattedGitIgnore = await formateFile(fileGit);
@@ -20,4 +23,13 @@ module.exports = async (bash, useGit) => {
   await write(`./${bash}/.editorconfig`, formattedEditorConfig);
   !verifyGitInput && await write(`./${bash}/.gitignore`, formattedGitIgnore);
   await write(`./${bash}/src/server.js`, formattedServer);
+
+  const packageJSON = await read(`./${bash}/package.json`);
+
+  const teste = {
+    ...packageJSON,
+    ...jsonApp
+  }
+
+  await write(`./${bash}/package.json`, JSON.stringify(teste, null, 2));
 }
