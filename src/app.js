@@ -1,13 +1,9 @@
 const { start, get } = require('prompt');
 
 const schema = require('./validations');
-// const read = require('./readFile');
-
 const { runningScript, exec } = require('./execut');
 const { writeScript } = require('./writingScript');
-
 const { verifyGit } = require('./utils');
-
 
 start();
 
