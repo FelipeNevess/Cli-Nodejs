@@ -10,12 +10,14 @@ const {
   }
 } = require('../../pakages');
 
-module.exports = async (bash) => {
+module.exports = async (bash, useGit) => {
+  const verifyGitInput = /^(N|NO)$/i.test(useGit);
+
   const formattedEditorConfig = await formateFile(fileEditorConfig);
   const formattedGitIgnore = await formateFile(fileGit);
   const formattedServer = await formateFile(fileServer);
 
   await write(`./${bash}/.editorconfig`, formattedEditorConfig);
-  await write(`./${bash}/.gitignore`, formattedGitIgnore);
+  !verifyGitInput && await write(`./${bash}/.gitignore`, formattedGitIgnore);
   await write(`./${bash}/src/server.js`, formattedServer);
 }
