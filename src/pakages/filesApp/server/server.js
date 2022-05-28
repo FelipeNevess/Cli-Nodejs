@@ -7,7 +7,9 @@ const serverConfig = `
 
   app.use(bodyParser.json());
 
-  app.get('/', (req, res) => res.json({ name: "Project base node" }));
+  app.get('/', (req, res) => res
+    .status(200)
+    .json({ name: "Hello World!" }));
 
   app.listen(port, () => console.log('Service started 🟢'));
 `;
