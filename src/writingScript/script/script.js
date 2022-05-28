@@ -26,10 +26,10 @@ module.exports = async (bash, useGit) => {
 
   const packageJSON = await read(`./${bash}/package.json`);
 
-  const teste = {
+  const fullJson = {
     ...packageJSON,
     ...jsonApp
   }
 
-  await write(`./${bash}/package.json`, JSON.stringify(teste, null, 2));
+  await write(`./${bash}/package.json`, JSON.stringify(fullJson, null, 2));
 }
