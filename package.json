@@ -1,6 +1,6 @@
 {
   "name": "pro1",
-  "version": "1.1.0",
+  "version": "1.5.0",
   "description": "Crie um projeto base em Nodejs com apenas um comando",
   "main": "src/app.js",
   "bin": {
