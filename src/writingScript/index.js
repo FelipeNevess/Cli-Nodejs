@@ -1,5 +1,3 @@
-const writeScript = require('./script/script');
+const writeScript = require('./populatingFiles');
 
-module.exports = {
-  writeScript
-};
+module.exports = writeScript;
