@@ -12,16 +12,16 @@ const defaultSetting = {
 module.exports = {
   properties: {
     nameProject: {
-      description: 'Nome do projeto:',
+      description: 'Nome do projeto',
       ...defaultSetting
     },
     useGit: {
-      description: 'Iniciar git? (Y/N)',
+      description: 'Iniciar git (Y/N)',
       ...defaultSetting,
       ...objectPatern
     },
     useTypescript: {
-      description: 'Com typescript? (Y/N)',
+      description: 'Com typescript (Y/N)',
       ...defaultSetting,
       ...objectPatern
     }
