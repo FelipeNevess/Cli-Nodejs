@@ -1,3 +1,7 @@
 const writeScript = require('./populatingFiles');
+const runningAdditionalCommands = require('./runningAdditionalCommands');
 
-module.exports = writeScript;
+module.exports = {
+  writeScript,
+  runningAdditionalCommands
+};
