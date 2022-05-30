@@ -7,13 +7,17 @@ const serverConfig = `
   const port = process.env.PORT || 3333;
 
   app.use(bodyParser.json());
-  app.use(cors());
-
+  
   // Config base cors
-  // origin: "http://localhost:3000", // restrict calls to those this address
-  // methods: "GET" // only allow GET requests
+  app.use(cors({
+    \torigin: "http://localhost:3000", // restrict calls to those this address
+    \tmethods: "GET" // only allow GET requests
+  }));
 
-  app.get('/', (_req, res) => res.status(200).json({ name: "Hello World!" }));
+
+  app.get('/', (_req, res) => res
+    \t.status(200)
+    \t.json({ name: "Hello World!" }));
 
   app.listen(port, () => console.log('Service started 🟢'));
 `;
