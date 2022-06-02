@@ -25,5 +25,9 @@ Entre em um diretório onde você quer criar um projeto node, e rode o comando:
 ```
 create-app
 ```
+ou
+```
+npx @nevess/node-cli
+```
 ## Contribuindo
 Solicitações de pull requests são bem-vindas. Para grandes mudanças, abra um problema primeiro para discutir o que você gostaria de mudar.
